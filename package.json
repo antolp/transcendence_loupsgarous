@@ -13,12 +13,13 @@
   ],
   "scripts": {
     "build:contracts": "npm run build -w @ft/contracts",
-    "dev": "npm run build:contracts && npm run dev -w @ft/server",
-    "build": "npm run build:contracts && npm run build -w @ft/server",
-    "typecheck": "npm run build:contracts && npm run typecheck -w @ft/server"
+    "dev": "npm run build:contracts && concurrently -k -n server,web \"npm run dev -w @ft/server\" \"npm run dev -w @ft/web\"",
+    "build": "npm run build:contracts && npm run build -w @ft/server && npm run build -w @ft/web",
+    "typecheck": "npm run build:contracts && npm run typecheck -w @ft/server && npm run typecheck -w @ft/web"
   },
   "devDependencies": {
     "@types/node": "^22.15.30",
+    "concurrently": "^9.2.0",
     "typescript": "^5.9.2"
   }
 }

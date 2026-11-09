@@ -1,0 +1,23 @@
+/* The reference prototype uses a deliberately plain, responsive layout. */
+body {
+  margin: 0;
+  font: 15px/1.5 system-ui, sans-serif;
+  background: #f6f6f6;
+  color: #474747;
+}
+
+.page {
+  max-width: 500px;
+  margin: 28px auto;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #bbb;
+}
+
+h1 { margin-top: 0; }
+.expl { font-size: 13px; }
+.error { color: #a00; border: 1px solid #d88; background: #fff0f0; padding: 8px; }
+
+@media (max-width: 720px) {
+  .page { margin: 8px; }
+}
