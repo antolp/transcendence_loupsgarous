@@ -1,0 +1,36 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Your branch is up to date with 'origin/main'.
+#
+# Changes to be committed:
+#	modified:   .env.example
+#	modified:   apps/server/package.json
+#	new file:   apps/server/prisma.config.ts
+#	new file:   apps/server/prisma/migrations/20261109010000_initial_lobby/migration.sql
+#	new file:   apps/server/prisma/migrations/migration_lock.toml
+#	new file:   apps/server/prisma/schema.prisma
+#	new file:   apps/server/prisma/seed.ts
+#	modified:   apps/server/src/app.ts
+#	modified:   apps/server/src/index.ts
+#	new file:   apps/server/src/lobby/errors.ts
+#	new file:   apps/server/src/lobby/service.ts
+#	modified:   apps/web/src/App.tsx
+#	new file:   apps/web/src/lobby/api.ts
+#	modified:   apps/web/src/style.css
+#	new file:   docker-compose.yml
+#	modified:   package-lock.json
+#	modified:   package.json
+#	modified:   packages/contracts/package.json
+#	modified:   packages/contracts/src/index.ts
+#	new file:   packages/contracts/src/lobby.ts
+#
+# Changes not staged for commit:
+#	modified:   README.md
+#
+Introduced persistent guest registration and lobby state
+Add PostgreSQL and Prisma with a clean initial lobby schema and database seeding
+Implement guest token authentication and persistent lobby state through Express and React
+
