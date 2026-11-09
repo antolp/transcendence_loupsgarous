@@ -13,9 +13,15 @@
   ],
   "scripts": {
     "build:contracts": "npm run build -w @ft/contracts",
-    "dev": "npm run build:contracts && concurrently -k -n server,web \"npm run dev -w @ft/server\" \"npm run dev -w @ft/web\"",
-    "build": "npm run build:contracts && npm run build -w @ft/server && npm run build -w @ft/web",
-    "typecheck": "npm run build:contracts && npm run typecheck -w @ft/server && npm run typecheck -w @ft/web"
+    "dev": "npm run build:contracts && npm run db:generate && concurrently -k -n server,web \"npm run dev -w @ft/server\" \"npm run dev -w @ft/web\"",
+    "build": "npm run build:contracts && npm run db:generate && npm run build -w @ft/server && npm run build -w @ft/web",
+    "typecheck": "npm run build:contracts && npm run db:generate && npm run typecheck -w @ft/server && npm run typecheck -w @ft/web",
+    "db:up": "docker compose up -d --wait db",
+    "db:down": "docker compose down",
+    "db:generate": "npm run db:generate -w @ft/server",
+    "db:migrate": "npm run db:migrate -w @ft/server",
+    "db:seed": "npm run db:seed -w @ft/server",
+    "db:setup": "npm run db:up && npm run db:generate && npm run db:migrate && npm run db:seed"
   },
   "devDependencies": {
     "@types/node": "^22.15.30",

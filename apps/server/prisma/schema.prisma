@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+//A single persisted room. Later commits will extend it with game state.
+model Room {
+  id            String   @id
+  revision      Int      @default(0)
+  adminPlayerId String?
+  players       Player[]
+}
+
+//A guest is identified by a random token; only its SHA-256 hash is stored.
+model Player {
+  id          String   @id @default(uuid())
+  roomId      String
+  room        Room     @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  username    String
+  usernameKey String
+  tokenHash   String   @unique
+  joinedAt    DateTime @default(now())
+
+  @@unique([roomId, usernameKey])
+  @@index([roomId, joinedAt])
+}
