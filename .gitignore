@@ -1,0 +1,17 @@
+#locally built stuff from npm
+node_modules/
+**/dist/
+**/.vite/
+
+*.tsbuildinfo
+*.log
+.DS_Store
+#ah
+packages/contracts/src/*.js
+
+
+#Never commit real local environment settings !!!
+#(.env.example allowed)
+.env
+.env*
+!.env.example
